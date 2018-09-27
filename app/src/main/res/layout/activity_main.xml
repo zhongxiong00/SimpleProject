@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+
+    <com.simpleproject.android.widgets.FixedViewPage
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/v_didive" />
+
+    <View
+        android:id="@+id/v_didive"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/tab_main_layout"
+        android:background="#e2e2e2" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:tabBackground="@color/white_ffffff"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed" />
+
+</RelativeLayout>

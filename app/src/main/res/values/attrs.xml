@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HorizontalProgressBar">
+        <attr name="unReachColor" format="color" />
+        <attr name="unReachHeight" format="dimension" />
+        <attr name="reachColor" format="color" />
+        <attr name="reachHeight" format="dimension" />
+    </declare-styleable>
+</resources>
+
+
+
+

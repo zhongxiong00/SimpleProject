@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:id="@+id/rl_title_left"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_title_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#333333"
+        android:textSize="36sp"
+        tools:text="aaaaaaaaaaaa" />
+
+    <TextView
+        android:id="@+id/tv_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="40dp"
+        android:text="右侧"
+        android:textColor="#333333"
+        android:textSize="26sp"
+        android:visibility="gone" />
+</RelativeLayout>

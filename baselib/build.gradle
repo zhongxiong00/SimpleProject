@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+        }
+        release {
+            // 不显示log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'me.jessyan:autosize:0.9.5' //今日头条屏幕适配
+    api 'com.github.bumptech.glide:glide:4.7.1'//Glide图片加载
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    api 'com.squareup.okhttp3:okhttp:3.3.1'
+    api 'pub.devrel:easypermissions:1.2.0' //动态权限请求
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7' //下拉刷新
+    api 'com.google.code.gson:gson:2.8.5'  //gson解析
+    api 'org.greenrobot:eventbus:3.1.1' //eventbus
+    api 'com.meituan.android.walle:library:1.1.6' //walle打包
+    api 'com.android.support:appcompat-v7:27.1.1' //supportv7
+    api 'com.android.support:support-v4:27.1.1'//supportv4
+    api 'com.android.support:design:27.1.1' //supportDesign
+    api 'com.android.support:multidex:1.0.1' //multidex
+    debugApi 'com.squareup.leakcanary:leakcanary-android:1.5.4' //leakcanary内存泄漏检测
+    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+}

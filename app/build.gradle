@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.simpleproject.android"
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        versionCode var.versionCode
+        versionName var.versionName
+        flavorDimensions var.versionName
+        ndk {
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        javaCompileOptions {
+            annotationProcessorOptions { //tinker 接入标注生成Appliation 在AS3.0以上需要添加
+                includeCompileClasspath true
+            }
+        }
+    }
+    //配置keystore签名
+    signingConfigs {
+        /*   sign {
+               storeFile file("") //配置签名文件路径
+               storePassword ""
+               keyAlias ""
+               keyPassword ""
+           }*/
+
+    }
+    buildTypes {
+        debug {
+            // signingConfig signingConfigs.sign
+            zipAlignEnabled true
+            minifyEnabled false
+            shrinkResources false
+            debuggable true//允许调试
+        }
+        release {
+            //混淆
+            //signingConfig signingConfigs.sign
+            zipAlignEnabled true
+            minifyEnabled true
+            shrinkResources true
+            debuggable false//允许调试
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        //测试环境
+        DEBUG {
+            buildConfigField "String", "BASE_SERVER_URL", DEBUG_BASE_SERVER_URL
+        }
+        //生产环境
+        RELEASE {
+            buildConfigField "String", "BASE_SERVER_URL", RELEASE_BASE_SERVER_URL
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':baselib')
+    implementation var.constraintLayout
+    implementation var.banner
+    implementation var.bugly
+    implementation var.buglyNative
+    implementation var.tinkerAnno
+    implementation var.tinker
+}
