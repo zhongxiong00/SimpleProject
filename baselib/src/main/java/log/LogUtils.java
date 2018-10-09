@@ -1,13 +1,7 @@
-package log;/*
- * File Name: LogUtils.java
- * History:
- * Created by mwqi on 2014-4-4
- */
+package log;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.yingu.baselib.BuildConfig;
 
 
 /**
@@ -15,6 +9,12 @@ import com.yingu.baselib.BuildConfig;
  * 时间： 2018/6/28
  * 描述： 统一日志管理类
  **/
+
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.yingu.baselib.BuildConfig;
+
 public class LogUtils {
 
     /**

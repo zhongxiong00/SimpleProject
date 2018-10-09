@@ -51,7 +51,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends MvpBaseActiv
 
     @Override
     public void showToastMsg(String msg) {
-        com.yingu.baselib.ui.ToastUtil.showToastShort(this, msg);
+       com.yingu.baselib.ui.ToastUtil.showToastShort(this, msg);
     }
 
     @Override
@@ -75,13 +75,5 @@ public abstract class BaseActivity<P extends BasePresenter> extends MvpBaseActiv
         super.onDestroy();
         AppManager.getAppManager().removeActivity(this);
     }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
-
 
 }

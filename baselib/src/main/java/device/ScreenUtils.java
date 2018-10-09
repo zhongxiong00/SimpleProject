@@ -11,9 +11,9 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
 
-import com.yingu.baselib.CommonUtils;
-
 import java.lang.reflect.Method;
+
+import utils.CommonUtils;
 
 /**
  * 作者： 钟雄辉
@@ -68,7 +68,6 @@ public class ScreenUtils {
     }
 
     public static int dp2px(float dpValue) {
-
         final float scale = CommonUtils.getApp().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }

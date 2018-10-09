@@ -1,16 +1,11 @@
-package com.yingu.baselib;
+package utils;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.Map;
 
 /**
  * 作者： 钟雄辉

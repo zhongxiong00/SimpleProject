@@ -7,9 +7,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
-import com.yingu.baselib.CommonUtils;
-import com.yingu.baselib.ui.ToastUtil;
 
+import ui.ToastUtil;
 import utils.AppUtils;
 
 /**

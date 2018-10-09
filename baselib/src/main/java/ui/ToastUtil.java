@@ -1,4 +1,4 @@
-package com.yingu.baselib.ui;
+package ui;
 
 import android.content.Context;
 import android.text.TextUtils;

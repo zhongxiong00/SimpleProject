@@ -1,4 +1,4 @@
-package com.yingu.baselib.ui;
+package ui;
 
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
