@@ -16,6 +16,7 @@ import com.simpleproject.android.http.HttpClient;
 import com.simpleproject.android.widgets.dialog.LoadingDialog;
 
 import mvp.MvpBaseFragment;
+import ui.ToastUtil;
 
 
 public abstract class BaseFragment<P extends BasePresenter> extends MvpBaseFragment<P> implements IBaseView {
@@ -81,7 +82,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends MvpBaseFragm
 
     @Override
     public void showToastMsg(String msg) {
-        com.yingu.baselib.ui.ToastUtil.showToastShort(getContext(), msg);
+        ToastUtil.showToastShort(getContext(), msg);
     }
 
     public abstract int getLayoutId();

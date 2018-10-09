@@ -19,7 +19,7 @@ import log.LogUtils;
  * 描述： H5加载Activity
  * 注意：与H5交互的方法写到H5Interactive
  **/
-public class WebActivity extends BaseActivity<WebPresenter> implements IWebView, IH5InvokeAndroid {
+public class WebActivity extends BaseActivity<WebPresenter> implements IWebView {
     private X5WebView mWebView;
     private String mUrl, mJS;
     private static final String PASS_URL = "PASS_URL";

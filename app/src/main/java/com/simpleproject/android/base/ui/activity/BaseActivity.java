@@ -13,6 +13,7 @@ import com.simpleproject.android.widgets.dialog.LoadingDialog;
 
 import mvp.MvpBaseActivity;
 import pub.devrel.easypermissions.EasyPermissions;
+import ui.ToastUtil;
 
 /**
  * 作者： 钟雄辉
@@ -51,7 +52,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends MvpBaseActiv
 
     @Override
     public void showToastMsg(String msg) {
-       com.yingu.baselib.ui.ToastUtil.showToastShort(this, msg);
+        ToastUtil.showToastShort(this, msg);
     }
 
     @Override

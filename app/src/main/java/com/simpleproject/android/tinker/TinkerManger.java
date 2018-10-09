@@ -15,11 +15,11 @@ import com.tencent.tinker.lib.reporter.PatchReporter;
 import com.tencent.tinker.lib.tinker.Tinker;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 import com.tencent.tinker.loader.app.ApplicationLike;
-import com.yingu.baselib.CommonUtils;
 
 import java.util.Map;
 
 import pub.devrel.easypermissions.EasyPermissions;
+import utils.CommonUtils;
 
 public class TinkerManger {
     /**

@@ -3,7 +3,8 @@ package com.simpleproject.android.utils;
 import android.os.Environment;
 
 import com.simpleproject.android.Constants;
-import com.yingu.baselib.CommonUtils;
+
+import utils.CommonUtils;
 
 
 public class FileUtils {

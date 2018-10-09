@@ -13,13 +13,13 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.loader.app.DefaultApplicationLike;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
-import com.yingu.baselib.CommonUtils;
 
 import encrypt.AES_ECB;
 import imageloader.GlideImageLoader;
 import imageloader.ImageLoader;
 import log.LogUtils;
 import me.jessyan.autosize.AutoSizeConfig;
+import utils.CommonUtils;
 
 /**
  * 作者： 钟雄辉

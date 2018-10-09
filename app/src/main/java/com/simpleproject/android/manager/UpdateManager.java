@@ -10,7 +10,6 @@ import com.simpleproject.android.Constants;
 import com.simpleproject.android.http.HttpClient;
 import com.simpleproject.android.widgets.dialog.AppUpdateDialog;
 import com.simpleproject.android.widgets.dialog.AppUpdateProgressDialog;
-import com.yingu.baselib.CommonUtils;
 
 import java.io.File;
 
@@ -19,6 +18,8 @@ import http.callback.FileCallBack;
 import log.LogUtils;
 import okhttp3.Call;
 import pub.devrel.easypermissions.EasyPermissions;
+import ui.ToastUtil;
+import utils.CommonUtils;
 
 /**
  * 作者： 钟雄辉
@@ -61,7 +62,7 @@ public class UpdateManager {
                                     Constants.PermissionConstants.PERMISSION_STORAGE, perms);
                         }
                     } else {
-                        com.yingu.baselib.ui.ToastUtil.showToastShort(CommonUtils.getApp(), "sd卡未挂载");
+                        ToastUtil.showToastShort(CommonUtils.getApp(), "sd卡未挂载");
                     }
 
                 }
@@ -80,7 +81,7 @@ public class UpdateManager {
                 if (mHintUpdateProgressDialog != null) {
                     mHintUpdateProgressDialog.dismiss();
                 }
-                com.yingu.baselib.ui.ToastUtil.showToastShort(CommonUtils.getApp(), "网络异常，请检查您的网络再更新");
+                ToastUtil.showToastShort(CommonUtils.getApp(), "网络异常，请检查您的网络再更新");
             }
 
             @Override

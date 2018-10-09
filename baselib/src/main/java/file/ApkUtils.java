@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 
-import com.yingu.baselib.CommonUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -19,6 +18,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+
+import utils.CommonUtils;
 
 /**
  * 作者： 钟雄辉
