@@ -9,7 +9,7 @@ import com.tencent.smtt.sdk.WebView;
  * 注意： 方法必须是public static 并且第一个参数必须是 WebView
  **/
 public class H5Interactive {
-    public static void closePage(WebView webView) {
-
+    public static void test(WebView webView) {
+        ((IH5InvokeAndroid) webView).test();
     }
 }

@@ -6,5 +6,5 @@ package com.simpleproject.android.h5.inreractive;
  * 描述：H5调用Android
  **/
 public interface IH5InvokeAndroid {
-
+    void test();
 }

@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import com.simpleproject.android.R;
 import com.simpleproject.android.h5.inreractive.H5Interactive;
+import com.simpleproject.android.h5.inreractive.IH5InvokeAndroid;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -22,7 +23,7 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
  * 时间： 2018/9/27
  * 描述： 腾讯X5WebView封装
  **/
-public class X5WebView extends WebView {
+public class X5WebView extends WebView implements IH5InvokeAndroid {
     private ProgressBar progressbar;  //进度条
     private String mJS;
     private int progressHeight;  //进度条的高度，默认10px
@@ -116,4 +117,8 @@ public class X5WebView extends WebView {
     }
 
 
+    @Override
+    public void test() {
+
+    }
 }
