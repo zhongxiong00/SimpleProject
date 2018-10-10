@@ -63,8 +63,8 @@ Fragment继承BaseFragment即可
 BaseActivity，BaseFragment放置一些公共业务，如果想封装一些UI相关的Activity，Fragment，都继承这两个
 项目里面已经封装有loading相关，标题栏相关，开发者根据需要选择继承即可。
 继承关系如下图：
-
-
+![enter image description here](https://github.com/zhongxiong00/SimpleProject/blob/master/pics/activity.jpg)
+![enter image description here](https://github.com/zhongxiong00/SimpleProject/blob/master/pics/fragment.jpg)
   [1]: https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
   [2]: https://github.com/JessYanCoding/AndroidAutoSize
   [3]: https://github.com/Jay-Goo/ProtectedApkResignerForWalle
