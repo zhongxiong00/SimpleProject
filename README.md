@@ -41,6 +41,7 @@ LaunchApplication是Application的代理类，因为使用了Tinker热修复，�
 
 
 **适配**
+
 屏幕适配采用的是今日头条的适配方案。
 在AndroidManifest.xml文件中配置UI设计图的宽度dp值即可完成自动适配
 参考：[今日头条适配方案的封装](https://github.com/JessYanCoding/AndroidAutoSize)
@@ -48,17 +49,20 @@ LaunchApplication是Application的代理类，因为使用了Tinker热修复，�
 
 ----------
 **图片加载**
+
 使用ImageLoaderUtils加载图片即可
 
 
 ----------
 **多渠道打包**
+
 多渠道打包采用的walle，渠道信息的读取请使用ChannelUtils
 walle打包参考：[Walle多渠道打包Python工具](https://github.com/Jay-Goo/ProtectedApkResignerForWalle)
 
 
 ----------
 **Mvp设计模式**
+
 Activity继承BaseActivity即可
 Fragment继承BaseFragment即可
 BaseActivity，BaseFragment放置一些公共业务，如果想封装一些UI相关的Activity，Fragment，都继承这两个
