@@ -13,7 +13,11 @@ import com.simpleproject.android.widgets.refresh.RefreshLoadMoreLayout;
 
 import log.LogUtils;
 
-
+/**
+ * 作者： 钟雄辉
+ * 时间： 2018/10/10
+ * 描述： 列表类型页面封装
+ **/
 public abstract class BaseListViewFragment<P extends BaseListPresenter, A extends BaseRecyclerAdapter> extends BaseLoadingFragment<P> implements IBaseListView {
     protected A mAdapter;
     protected RefreshLoadMoreLayout mRefreshView;

@@ -1,5 +1,7 @@
 package com.simpleproject.android.base.ui.activity;
 
+import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
@@ -19,19 +21,21 @@ import com.simpleproject.android.base.ui.iview.ILoadingView;
  **/
 public abstract class BaseLoadingActivity<P extends BaseLoadingPresenter> extends BaseTitleBarActivity<P> implements ILoadingView {
     private ViewStub mVbReload, mVbEmpty;
-    private FrameLayout mFlContent;
-    private TextView mTvReload;
     private TextView mTvEmpty;
     private View mLoadingView, mReloadView, mEmptyView;
+    private FrameLayout mFlContent;
+    private SparseArray<View> mViewMap;
 
     @Override
-    final protected void initContentView() {
+    final protected void initContentView(Bundle savedInstanceState) {
+        mViewMap = new SparseArray<>();
         mVbReload = findViewById(R.id.vb_reload);
-        mFlContent = findViewById(R.id.fl_content_sub);
         mVbEmpty = findViewById(R.id.vb_empty);
         mLoadingView = findViewById(R.id.ly_loading);
+        mFlContent = findViewById(R.id.fl_content_sub);
+        mViewMap.put(1, mLoadingView);
+        mViewMap.put(4, mFlContent);
         View viewContent = View.inflate(this, dataLayoutId(), null);
-        mFlContent.removeAllViews();
         mFlContent.addView(viewContent);
         mFlContent.setVisibility(View.GONE);
         initView();
@@ -46,66 +50,39 @@ public abstract class BaseLoadingActivity<P extends BaseLoadingPresenter> extend
 
     @Override
     public void showReload() {
-        mLoadingView.setVisibility(View.GONE);
-        if (mFlContent != null) {
-            mFlContent.setVisibility(View.GONE);
-        }
-        if (mEmptyView != null) {
-            mEmptyView.setVisibility(View.GONE);
-        }
         if (mReloadView == null) {
             mReloadView = mVbReload.inflate();
+            mViewMap.put(2, mReloadView);
+            mReloadView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    reloadData();
+                }
+            });
         }
-        mReloadView.setVisibility(View.VISIBLE);
-        mTvReload = mReloadView.findViewById(R.id.tv_reload);
-        mTvReload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reloadData();
-            }
-        });
+        showTarget(2);
     }
 
     @Override
     public void showLoadingData() {
-        mLoadingView.setVisibility(View.VISIBLE);
-        if (mFlContent != null) {
-            mFlContent.setVisibility(View.GONE);
-        }
-        if (mReloadView != null) {
-            mReloadView.setVisibility(View.GONE);
-        }
-        if (mEmptyView != null) {
-            mEmptyView.setVisibility(View.GONE);
-        }
+        showTarget(1);
     }
 
     @Override
     public void loadingDataComplete() {
-        mLoadingView.setVisibility(View.GONE);
-        if (mReloadView != null) {
-            mReloadView.setVisibility(View.GONE);
-        }
-        if (mEmptyView != null) {
-            mEmptyView.setVisibility(View.GONE);
-        }
-        mFlContent.setVisibility(View.VISIBLE);
+        showTarget(4);
     }
 
     @Override
     public void showEmpty() {
-        mLoadingView.setVisibility(View.GONE);
-        if (mReloadView != null) {
-            mReloadView.setVisibility(View.GONE);
-        }
-        if (mFlContent != null) {
-            mFlContent.setVisibility(View.GONE);
-        }
         if (mEmptyView == null) {
             mEmptyView = mVbEmpty.inflate();
+            mViewMap.put(3, mEmptyView);
         }
-        mTvEmpty = mEmptyView.findViewById(R.id.tv_empty_hint);
-        mEmptyView.setVisibility(View.VISIBLE);
+        if (mTvEmpty == null) {
+            mTvEmpty = mEmptyView.findViewById(R.id.tv_empty_hint);
+        }
+        showTarget(3);
     }
 
     @Override
@@ -114,6 +91,17 @@ public abstract class BaseLoadingActivity<P extends BaseLoadingPresenter> extend
         if (mTvEmpty != null) {
             mTvEmpty.setText(hint);
         }
+    }
+
+    private void showTarget(int index) {
+        for (int i = 0; i < mViewMap.size(); i++) {
+            if (mViewMap.keyAt(i) != index) {
+                mViewMap.get(mViewMap.keyAt(i)).setVisibility(View.GONE);
+            } else {
+                mViewMap.get(index).setVisibility(View.VISIBLE);
+            }
+        }
+
     }
 
     protected abstract int dataLayoutId();//展示数据的布局文件

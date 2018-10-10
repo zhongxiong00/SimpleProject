@@ -27,8 +27,8 @@ public class Constants {
     }
 
     public static class FileConstants { //文件相关常量
-        public static String CACHE_PACKET_DIR = "/fruit"; //普通文件缓存路径
-        public static final String PATCH_DIR = "/fruitpatch";//补丁包
+        public static String CACHE_PACKET_DIR = "/mycache"; //普通文件缓存路径
+        public static final String PATCH_DIR = "/mypatch";//补丁包
     }
 
     public static class SpConstants {

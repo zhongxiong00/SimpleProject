@@ -33,7 +33,7 @@ public abstract class BaseTitleBarActivity<P extends BasePresenter> extends Base
             }
         });
         initTitleBar();
-        initContentView();
+        initContentView(savedInstanceState);
     }
 
     @Override
@@ -50,5 +50,5 @@ public abstract class BaseTitleBarActivity<P extends BasePresenter> extends Base
 
     protected abstract void initTitleBar();//初始化标题栏
 
-    protected abstract void initContentView();
+    protected abstract void initContentView(Bundle savedInstanceState);
 }
