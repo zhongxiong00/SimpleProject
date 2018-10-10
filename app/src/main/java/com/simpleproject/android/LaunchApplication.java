@@ -60,8 +60,8 @@ public class LaunchApplication extends DefaultApplicationLike {
         initImageLoader();
         initLeakCanary();
         initAutoAdapter();
-        // initEncrypt();
-        //initBugly();
+        // initEncrypt();//如需要AES加密
+        //initBugly(); //如需要集成bugly异常上报
     }
 
     private void initSyncThread() {

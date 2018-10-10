@@ -66,37 +66,26 @@ public class HttpClient {
      * @param params
      * @param callback
      */
-    public void postWithTag(Object o, String url, Map params, Map<String, String> headParam, Callback callback) {
-        basePost(o, getAbsoluteUrl(url), params, headParam, callback);
+    public void postWithTag(Object o, String url, Map params, Callback callback) {
+        basePost(o, getAbsoluteUrl(url), params, callback);
     }
 
-    public void postWithTag(Object o, String baseUrl, String url, Map params, Map<String, String> headParam, Callback callback) {
-        basePost(o, baseUrl + url, params, headParam, callback);
+    public void postWithTag(Object o, String baseUrl, String url, Map params, Callback callback) {
+        basePost(o, baseUrl + url, params, callback);
     }
 
-    private void basePost(Object activity, String url,
-                          Map params, Map<String, String> headParam, Callback callback) {
+    private void basePost(Object o, String url,
+                          Map params, Callback callback) {
         PostFormBuilder postFormBuilder;
         postFormBuilder =
                 OkHttpUtils.post()
+                        .tag(o)
                         .url(url)
                         .params(params);
-        if (headParam != null) {
-            Set<String> keys = headParam.keySet();
-            for (String key : keys) {
-                postFormBuilder.addHeader(key, headParam.get(key));
-            }
-        }
         LogUtils.e("接口请求地址： " + url);
         if (params != null) {
             LogUtils.e("接口传参body:" + params.toString());
         }
-        if (headParam != null) {
-            LogUtils.e("接口传参header:" + headParam.toString());
-        }
-        if (activity != null)
-            postFormBuilder.tag(activity);
-
         postFormBuilder
                 .build()
                 .execute(callback);
