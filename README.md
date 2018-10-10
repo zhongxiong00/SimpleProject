@@ -1,5 +1,6 @@
 # SimpleProject
-SimpleProject让开发者快速搭建一个Android项目，里面使用的技术有 1.mvp设计模式 
+SimpleProject让开发者快速搭建一个Android项目，里面使用的技术有
+ 1.mvp设计模式 
 2.Tinker热修复 
 3.今日头条适配方案 
 4.Glide图片加载 
@@ -32,7 +33,7 @@ RELEASE_BASE_SERVER_URL=""
 
 
 **LaunchApplication**
-LaunchApplication是Application的代理类，因为使用了Tinker热修复，具体参考：[Tinker热修复集成指南][1]
+LaunchApplication是Application的代理类，因为使用了Tinker热修复，具体参考：[Tinker热修复集成指南](https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97)
 里面有一些工具的初始化，具体请自行阅读代码
 
 
@@ -42,7 +43,7 @@ LaunchApplication是Application的代理类，因为使用了Tinker热修复，�
 **适配**
 屏幕适配采用的是今日头条的适配方案。
 在AndroidManifest.xml文件中配置UI设计图的宽度dp值即可完成自动适配
-参考：[今日头条适配方案的封装][2]
+参考：[今日头条适配方案的封装](https://github.com/JessYanCoding/AndroidAutoSize)
 
 
 ----------
@@ -53,7 +54,7 @@ LaunchApplication是Application的代理类，因为使用了Tinker热修复，�
 ----------
 **多渠道打包**
 多渠道打包采用的walle，渠道信息的读取请使用ChannelUtils
-walle打包参考：[Walle多渠道打包Python工具][3]
+walle打包参考：[Walle多渠道打包Python工具](https://github.com/Jay-Goo/ProtectedApkResignerForWalle)
 
 
 ----------
@@ -65,6 +66,4 @@ BaseActivity，BaseFragment放置一些公共业务，如果想封装一些UI相
 继承关系如下图：
 ![enter image description here](https://github.com/zhongxiong00/SimpleProject/blob/master/pics/activity.jpg)
 ![enter image description here](https://github.com/zhongxiong00/SimpleProject/blob/master/pics/fragment.jpg)
-  [1]: https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
-  [2]: https://github.com/JessYanCoding/AndroidAutoSize
-  [3]: https://github.com/Jay-Goo/ProtectedApkResignerForWalle
+
