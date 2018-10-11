@@ -36,6 +36,10 @@
             android:name=".ui.activity.WebActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <service
+            android:name=".service.LaunchService"
+            android:exported="false" />
     </application>
 
 </manifest>

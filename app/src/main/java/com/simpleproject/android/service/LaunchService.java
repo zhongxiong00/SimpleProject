@@ -14,6 +14,10 @@ import log.LogUtils;
  * 描述： 一些耗时的启动操作可以放这里面进行
  **/
 public class LaunchService extends IntentService {
+    public LaunchService() {
+        super("LaunchService");
+    }
+
     public LaunchService(String name) {
         super(name);
     }
