@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import com.simpleproject.android.R;
 import com.simpleproject.android.h5.inreractive.H5Interactive;
+import com.simpleproject.android.h5.inreractive.H5InvokeAndroidProxy;
 import com.simpleproject.android.h5.inreractive.IH5InvokeAndroid;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.WebSettings;
@@ -24,6 +25,7 @@ import me.jessyan.autosize.utils.AutoSizeUtils;
  * 描述： 腾讯X5WebView封装
  **/
 public class X5WebView extends WebView implements IH5InvokeAndroid {
+    private H5InvokeAndroidProxy mInvokeProxy;
     private ProgressBar progressbar;  //进度条
     private String mJS;
     private int progressHeight;  //进度条的高度，默认10px
@@ -88,6 +90,7 @@ public class X5WebView extends WebView implements IH5InvokeAndroid {
     }
 
     private void initWebViewSettings(Context context) {
+        mInvokeProxy = new H5InvokeAndroidProxy(this);
         progressHeight = AutoSizeUtils.dp2px(context, 3.0f);
         //创建进度条
         progressbar = new ProgressBar(context, null,
@@ -119,6 +122,6 @@ public class X5WebView extends WebView implements IH5InvokeAndroid {
 
     @Override
     public void test() {
-
+        mInvokeProxy.test();
     }
 }
