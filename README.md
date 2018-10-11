@@ -61,7 +61,8 @@ walle打包参考：[Walle多渠道打包Python工具](https://github.com/Jay-Go
 
 ----------
 
-***H5***
+**H5**
+
 采用腾讯X5WebView内核，所有的交互方法写在H5Interactive类中,为了使X5Webview不那么臃肿，具体实现放在H5InvokeAndroidProxy代理类。
 交互方式参考：[Android与H5安全交互方式](https://github.com/pedant/safe-java-js-webview-bridge)
 
