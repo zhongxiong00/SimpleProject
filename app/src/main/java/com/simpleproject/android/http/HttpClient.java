@@ -70,9 +70,6 @@ public class HttpClient {
         basePost(o, getAbsoluteUrl(url), params, callback);
     }
 
-    public void postWithTag(Object o, String baseUrl, String url, Map params, Callback callback) {
-        basePost(o, baseUrl + url, params, callback);
-    }
 
     private void basePost(Object o, String url,
                           Map params, Callback callback) {
