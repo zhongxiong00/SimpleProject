@@ -6,7 +6,6 @@ import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
 
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,26 +20,26 @@ import log.LogUtils;
  * 时间： 2018/9/26
  * 描述： SP文件操作
  **/
-public class SharedPreferencesUtils {
+public class SPUtils {
     Context context;
     String name;
-    private static SharedPreferencesUtils spUtils;
+    private volatile static SPUtils spUtils;
     private SharedPreferences sp;
 
-    private SharedPreferencesUtils(Context context, String name) {
+    private SPUtils(Context context, String name) {
         this.context = context.getApplicationContext();
         this.name = name;
         sp = context.getSharedPreferences(this.name,
                 Context.MODE_PRIVATE);
     }
 
-    public static SharedPreferencesUtils getInstance(Context context) {
+    public static SPUtils getInstance(Context context) {
         if (spUtils == null) {
-            synchronized (SharedPreferencesUtils.class) {
+            synchronized (SPUtils.class) {
                 if (spUtils == null) {
-                    synchronized (SharedPreferencesUtils.class) {
+                    synchronized (SPUtils.class) {
                         if (context != null) {
-                            spUtils = new SharedPreferencesUtils(context.getApplicationContext(), "mysp");
+                            spUtils = new SPUtils(context, "mysp");
                         }
                     }
                 }
@@ -95,7 +94,7 @@ public class SharedPreferencesUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> T getObject(String key) {
+    public <T> T getObject(String key, T defaultValue) {
         if (sp != null && sp.contains(key)) {
             String objectVal = sp.getString(key, null);
             byte[] buffer = Base64.decode(objectVal, Base64.DEFAULT);
@@ -103,7 +102,6 @@ public class SharedPreferencesUtils {
             ObjectInputStream ois = null;
             try {
                 ois = new ObjectInputStream(bais);
-                // T t = (T) ois.readObject();
                 return (T) ois.readObject();
             } catch (StreamCorruptedException e) {
                 e.printStackTrace();
@@ -124,6 +122,6 @@ public class SharedPreferencesUtils {
                 }
             }
         }
-        return null;
+        return defaultValue;
     }
 }
