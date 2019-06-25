@@ -28,8 +28,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api 'me.jessyan:autosize:0.9.5' //今日头条屏幕适配
-    api 'com.github.bumptech.glide:glide:4.7.1'//Glide图片加载
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    api 'com.github.bumptech.glide:glide:4.9.0'//Glide图片加载
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     api 'com.squareup.okhttp3:okhttp:3.3.1'
     api 'pub.devrel:easypermissions:1.2.0' //动态权限请求
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7' //下拉刷新

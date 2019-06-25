@@ -8,7 +8,7 @@ import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 
-public abstract class SimpleBitmapCallback<R> implements Target<R> {
+abstract class SimpleBitmapCallback<R> implements Target<R> {
 
     @Override
     public void onLoadStarted(@Nullable Drawable placeholder) {

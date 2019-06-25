@@ -10,15 +10,12 @@ import com.simpleproject.android.tinker.TinkerManger;
 import com.simpleproject.android.utils.ChannelUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.loader.app.DefaultApplicationLike;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 import encrypt.AES_ECB;
-import imageloader.GlideImageLoader;
 import imageloader.ImageLoader;
-import log.LogUtils;
 import me.jessyan.autosize.AutoSizeConfig;
 import utils.AppUtils;
 import utils.CommonUtils;
@@ -105,10 +102,10 @@ public class LaunchApplication extends DefaultApplicationLike {
     }
 
     private void initImageLoader() {
-        ImageLoader.getInstance().setImageLoader(new GlideImageLoader()); //使用glide加载图片
+        ImageLoader.getInstance().getStrategy().init();
     }
 
     private void clearImageCache() {
-        ImageLoader.getInstance().clearMemoryCache(getApplication());
+        ImageLoader.getInstance().getStrategy().clearMemoryCache(getApplication());
     }
 }
